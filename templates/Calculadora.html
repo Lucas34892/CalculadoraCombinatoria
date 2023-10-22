@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculadora</title>
+    </head>
+    <style>
+        body{
+            font-size: larger;
+            background: linear-gradient(to bottom right, black, cyan);
+        }
+        #Directorio{
+            font-size: xx-large;
+            border: solid 3px;
+            background: linear-gradient(to bottom right, blue, orange);
+        }
+        .Formulas{
+            background: linear-gradient(to bottom right, green, rgb(188, 6, 194));
+            border: solid 3px;
+            margin-top: 30px;
+        }
+        .Calculos{
+            border: solid 3px;
+            margin: 10px;
+            background-color: red;
+        }
+        #RespuestaPC, #RespuestaPS, #RespuestaVC, #RespuestaVS, #RespuestaCC, #RespuestaCS{
+            border: solid; 
+            background-color: white;
+            margin: 10px;
+        }
+    </style>
+    <body>
+        <a href="index.html" style="font-size: xx-large;">Back</a>
+        <div id="Directorio">
+        <p>Directorio:</p>
+        <ol>
+            <li>Permutación:
+                <ul>
+                    <li><a href="#PermutacionC">Con repetición</a></li>
+                    <li><a href="#PermutacionS">Sin repetición</a></li>
+                </ul>
+            </li>
+            <li>Variación:
+                <ul>
+                    <li><a href="#VariacionC">Con repetición</a></li>
+                    <li><a href="#VariacionS">Sin repetición</a></li>
+                </ul>
+            </li>
+            <li>Combinación:
+                <ul>
+                    <li><a href="#CombinacionC">Con repetición</a></li>
+                    <li><a href="#CombinacionS">Sin repetición</a></li>
+                </ul>
+            </li>
+        </ol>
+        </div>
+        <div class="Formulas">
+            <h2 id="PermutacionC">Permutación con repetición</h2>
+            <p>Para calcular el total de permutaciones de <b>N</b> elementos, de los cuales uno de ellos se repite <b>P</b> veces, otro <b>Q</b> veces, otro <b>R</b> veces, y así sucesivamente, puedes aplicar la sigueinte expresión:<br>
+            <strong>Pn/p,q,r=(n!)/((p!)*(q!)*(r!))</strong></p>
+            <div class="Calculos">
+                <h3>Calcula:</h3>
+                <label for="Numero1PC">Total (N):</label>
+                <input id="Numero1PC" type="number"><br>
+                <label for="Numero2PC">Repetición (P)</label>
+                <input id="Numero2PC" type="number" value="1"> <br>
+                <label for="Numero3PC">Repetición (Q)</label>
+                <input id="Numero3PC" type="number" value="1"> <br>
+                <label for="Numero4PC">Repetición (R)</label>
+                <input id="Numero4PC" type="number" value="1">
+                <button onclick="PermutacionC()">Calcular</button>
+                <div id="RespuestaPC"></div>
+            </div>
+        </div>
+        <div class="Formulas">
+            <h2 id="PermutacionS">Permutación sin repetición</h2>
+            <p>Corresponde a la ordenación de un conjunto de <b>N</b> elementos. El número total de permutaciones entre <b>N</b> elementos distintos se denota como <b>Pn</b> y esta dado por:<br>
+            <strong>Pn=n!</strong></p>
+            <div class="Calculos">
+                <h3>Calcula:</h3>
+                <label for="Numero1PS">Total (N):</label>
+                <input id="Numero1PS" type="number">
+                <button onclick="PermutacionS()">Calcular</button>
+                <div id="RespuestaPS"></div>
+            </div>
+        </div>
+        <div class="Formulas">
+            <h2 id="VariacionC">Variación con repetición</h2>
+            <p>Es la permutación de <b>K</b> elementos, de un total de <b>N</b> elementos, los cuales se pueden repetir, que cuenta con una formula que dice:<br>
+            <strong>Vrn/k=n^k</strong></p>
+            <div class="Calculos">
+                <h3>Calcula:</h3>
+                <label for="Numero1VC">Total (N):</label>
+                <input id="Numero1VC" type="number">
+                <label for="Numero2VC">Seleccionados (K):</label>
+                <input id="Numero2VC" type="number">
+                <button onclick="VariacionC()">Calcular</button>
+                <div id="RespuestaVC"></div>
+            </div>
+        </div>
+        <div class="Formulas">
+            <h2 id="VariacionS">Variación sin repetición</h2>
+            <p>Se le denomia asi a la cantidad de ordenamientos posibles de <b>K</b> elementos, escogidos entre <b>N</b> elementos, los cuales no se pueden repetir, su formula es:<br>
+            <strong>Vn/k=(n!)/((n-k)!)</strong></p>
+            <div class="Calculos">
+                <h3>Calcula:</h3>
+                <label for="Numero1VS">Total (N):</label>
+                <input id="Numero1VS" type="number">
+                <label for="Numero2VS">Seleccionados (K):</label>
+                <input id="Numero2VS" type="number">
+                <button onclick="VariacionS()">Calcular</button>
+                <div id="RespuestaVS"></div>
+            </div>
+        </div>
+        <div class="Formulas">
+            <h2 id="CombinacionC">Combinación con repetición</h2>
+            <p>Se refiere al total de combinaciones posibles de <b>K</b> elementos, que se sacan de un total de <b>N</b> elementos, en los cuales no importa su orden y si se pueden repetir, su formula se representa como:<br>
+            <strong>Crn/k=((n+k-1)!)/(((n-1)!)*(k!))</strong></p>
+            <div class="Calculos">
+                <h3>Calcula:</h3>
+                <label for="Numero1CC">Total (N):</label>
+                <input id="Numero1CC" type="number">
+                <label for="Numero2CC">Seleccionados (K):</label>
+                <input id="Numero2CC" type="number">
+                <button onclick="CombinacionC()">Calcular</button>
+                <div id="RespuestaCC"></div>
+            </div>
+        </div>
+        <div class="Formulas">
+            <h2 id="CombinacionS">Combinación sin repetición</h2>
+            <p>Se define como la posibilidad de escoger <b>K</b> elementos, de un total de <b>N</b> elementos, los cuales no se pueden repetir y no importa su orden, se calcula como:<br>
+            <strong>Vn/k=(n!)/((k!)*((n-k)!))</strong></p>
+            <div class="Calculos">
+                <h3>Calcula:</h3>
+                <label for="Numero1CS">Total (N):</label>
+                <input id="Numero1CS" type="number">
+                <label for="Numero2CS">Seleccionados (K):</label>
+                <input id="Numero2CS" type="number">
+                <button onclick="CombinacionS()">Calcular</button>
+                <div id="RespuestaCS"></div>
+            </div>
+        </div>
+        <script>
+            function AlertaAleatoria() {
+                const respuestas = [
+                    "Estamos generando las posibles combinaciones...",
+                    "Estamos pensando en cómo obtener todas las combinaciones...",
+                    "Estamos calculando todas las variaciones...",
+                    "Estamos determinando las variaciones posibles...",
+                    "Estamos organizando las combinaciones posibles...",
+                    "Estamos configurando el algoritmo para calcular las posibles combinaciones...",
+                    "Estamos produciendo una lista de la cantidad de todas las variaciones posibles...",
+                    "36BA..."
+                ];
+                const indiceAleatorio = Math.floor(Math.random() * respuestas.length);
+                alert(respuestas[indiceAleatorio]);
+            }
+                function factorial(n) {
+                if (n === 0) {
+                    return 1;
+                } else {
+                    return n * factorial(n - 1);
+                }
+            }
+            function PermutacionC() {
+                AlertaAleatoria();
+                const N = parseFloat(document.getElementById("Numero1PC").value);
+                const P = parseFloat(document.getElementById("Numero2PC").value);
+                const Q = parseFloat(document.getElementById("Numero3PC").value);
+                const R = parseFloat(document.getElementById("Numero4PC").value);
+                const resultado = factorial(N) / ((factorial(P)) * (factorial(Q)) * (factorial(R)));
+                document.getElementById("RespuestaPC").textContent = "Respuesta: " + resultado;
+            }
+            function PermutacionS() {
+                AlertaAleatoria();
+                const N = parseFloat(document.getElementById("Numero1PS").value);
+                const resultado = factorial(N);
+                document.getElementById("RespuestaPS").textContent = "Respuesta: " + resultado;
+            }
+            function VariacionC() {
+                AlertaAleatoria();
+                const N = parseFloat(document.getElementById("Numero1VC").value);
+                const K = parseFloat(document.getElementById("Numero2VC").value);
+                const resultado = N ** K;
+                document.getElementById("RespuestaVC").textContent = "Respuesta: " + resultado;
+            }
+            function VariacionS() {
+                AlertaAleatoria();
+                const N = parseFloat(document.getElementById("Numero1VS").value);
+                const K = parseFloat(document.getElementById("Numero2VS").value);
+                const resultado = factorial(N) / (factorial(N - K));
+                document.getElementById("RespuestaVS").textContent = "Respuesta: " + resultado;
+            }
+            function CombinacionC() {
+                AlertaAleatoria();
+                const N = parseFloat(document.getElementById("Numero1CC").value);
+                const K = parseFloat(document.getElementById("Numero2CS").value);
+                const resultado = (factorial(N + K - 1)) / ((factorial(N - 1))*(factorial(K)));
+                document.getElementById("RespuestaCC").textContent = "Respuesta: " + resultado;
+            }
+            function CombinacionS() {
+                AlertaAleatoria();
+                const N = parseFloat(document.getElementById("Numero1CS").value);
+                const K = parseFloat(document.getElementById("Numero2CS").value);
+                const resultado = (factorial(N)) / ((factorial(K)) * (factorial(N - K)));
+                document.getElementById("RespuestaCS").textContent = "Respuesta: " + resultado;
+            }
+        </script>
+    </body>
+</html>

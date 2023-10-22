@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ennumeracion aleatoria</title>
+</head>
+<body>
+
+<a href="index.html" style="font-size: xx-large;">Atras</a>
+<button id="botonRespuestas">Mostrar numeros en orden aleatorio</button>
+<div id="tablaRespuestas"></div>
+
+<script>
+// Array de respuestas
+const respuestas = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+];
+
+// Función para mostrar respuestas en orden aleatorio y la cantidad de ordenamientos
+function mostrarRespuestasAleatorias() {
+    const tablaRespuestas = document.getElementById("tablaRespuestas");
+
+    // Copiamos el array de respuestas y lo reorganizamos aleatoriamente
+    const respuestasAleatorias = respuestas.slice();
+    for (let i = respuestasAleatorias.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [respuestasAleatorias[i], respuestasAleatorias[j]] = [respuestasAleatorias[j], respuestasAleatorias[i]];
+    }
+
+    // Calculamos la cantidad de ordenamientos posibles (factorial de la cantidad de respuestas)
+    const cantidad = calcularFactorial(respuestas.length);
+
+    // Mostramos las respuestas en la tabla con bordes
+    tablaRespuestas.innerHTML = "";
+    respuestasAleatorias.forEach((respuesta, index) => {
+        const fila = document.createElement("div");
+        fila.textContent = `Respuesta ${index + 1}: ${respuesta}`;
+        fila.style.border = "1px solid black";
+        fila.style.padding = "5px";
+        fila.style.margin = "5px";
+        tablaRespuestas.appendChild(fila);
+    });
+
+    // Mostramos la cantidad de ordenamientos posibles
+    const cantidadOrdenamientos = document.createElement("div");
+    cantidadOrdenamientos.textContent = `Cardinalidad: ${cantidad}`;
+    tablaRespuestas.appendChild(cantidadOrdenamientos);
+}
+
+// Función para calcular el factorial de un número
+function calcularFactorial(n) {
+    if (n === 0) {
+        return 1;
+    } else {
+        return n * calcularFactorial(n - 1);
+    }
+}
+
+// Agregar un evento de clic al botón
+const botonRespuestas = document.getElementById("botonRespuestas");
+botonRespuestas.addEventListener("click", mostrarRespuestasAleatorias);
+</script>
+
+</body>
+</html>
